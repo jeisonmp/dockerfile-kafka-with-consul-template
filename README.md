@@ -1,5 +1,6 @@
 # Kafka with consul-template
 
+This is a customizer from stakater/kafka.
 
 How to run:
 
