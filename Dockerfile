@@ -1,5 +1,5 @@
-FROM 	stakater/kafka:0.10.2.0
-LABEL	authors="Hazim <hazim_malik@hotmail.com>"
+FROM 	stakater/kafka:latest
+LABEL	authors="Max <maxjeison@gmail.com>"
 
 # setting a default value to make it work on dockerhub
 ARG CONSUL_TEMPLATE_VERSION=0.18.0
@@ -9,7 +9,7 @@ ENV KAFKA_HOME /opt/kafka
 # kafka container (with the alias consul, of course). But this environment variable can also be overridden when we run the
 # container if we want to point somewhere else.
 
-ENV CONSUL_URL consul:8500
+ENV CONSUL_URL ${DISCOVERY_HOST}:${DISCOVERY_PORT}
 
 # download the latest version of Consul Template and we put it on /usr/local/bin
 ADD https://releases.hashicorp.com/consul-template/${CONSUL_TEMPLATE_VERSION}/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip /usr/bin/
